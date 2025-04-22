@@ -8,7 +8,7 @@ FROM screen_time
 WHERE Screen_Time_Type = 'Total' 
 GROUP BY Age;
 
--- Result
+-- Result --
 -- As age goes up more hours you spend looking at your screen.
 
 -- Compare average screen time between genders on weekdays vs weekends.
@@ -18,7 +18,8 @@ WHERE Screen_Time_Type = 'Total'
 GROUP BY Gender, Day_Type;
 
 -- Result --
--- Weekend All Genders spend more time on screen.
+
+-- On Weekend, All Genders spend more time on screen.
 
 
 --  Trends and Insights
@@ -44,6 +45,8 @@ FROM screen_time
 WHERE Screen_Time_Type IN ('Educational', 'Recreational')
 GROUP BY Screen_Time_Type;
 
+-- Result --
+--  Not much, when they are watching educational & recreational content they spend more screen time during weekends. They spend a lot more on Recreational than Educational.
 
 -- Comparative Analysis
 -- Do boys or girls spend more time on screens for educational purposes?
@@ -55,17 +58,11 @@ GROUP BY Gender;
 -- Result --
 -- Girls spend more time on screens for Educational Purposes.
 
--- What percentage of total screen time is educational vs recreational?
-SELECT Screen_Time_Type, SUM(Average_Screen_Time_hours) AS max_screen
-FROM screen_time
-GROUP BY Screen_Time_Type;
 
 
--- 
-SELECT 
-  SUM(Average_Screen_Time_hours) * Sample_Size / SUM(Sample_Size) AS Weighted_Avg
-FROM screen_time
-WHERE Screen_Time_Type= 'Total';
+
+
+
 
 
 
